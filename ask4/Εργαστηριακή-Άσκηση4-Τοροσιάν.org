@@ -1,0 +1,90 @@
+#+TITLE: Κινητήρας συνεχούς ρεύματος
+#+SUBTITLE: Εργαστηριακή άσκηση 4
+#+AUTHOR: Τοροσιάν Νικόλαος ΤΜ6220
+:ORG-PROPERTIES:
+#+LANGUAGE: gr
+# The default La-TeX class is article,
+#+LATEX_CLASS: article
+
+# Options to modify the class. E.g. font size.
+
+# Other La-TeX code that you'd need in the preamble, notably, using packages.
+#+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[LGR]{fontenc}
+#+LATEX_HEADER: \usepackage[greek,greek]{babel}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage[english,greek]{babel}
+#+LATEX_HEADER: \newcommand{\en}[1]{\foreignlanguage{english}{#1}}
+#+LATEX_HEADER: \usepackage{minted}
+#+LATEX_HEADER: \usepackage[hidelinks]{hyperref}
+# Options don't need to be in capital letters
+#+latex_header: \hypersetup{colorlinks=true, linkcolor=black}
+#+OPTIONS: toc:nil tags:t
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+EXCLUDE_TAGS: noexport
+#+TAGS:  noexport(n)
+:END:
+:TABLE-CONSTANTS:
+#+CONSTANTS: pi=3.14159265358979323846 Rf=459 Rt=8.3
+:END:
+* Μετρήσεις εργαστηρίου
+** Κινητήρας και γεννήτρια παράλληλης διέγερσης
+*** Εν κενώ
+| \en{n (rpm)} | \en{If (A)} | \en{Vt (V)} |
+|--------------+-------------+-------------|
+|          262 |       0.058 |        27.2 |
+|          961 |       0.085 |          39 |
+|         1276 |        0.11 |          54 |
+|         1460 |       0.145 |        67.7 |
+|         1553 |        0.17 |        80.5 |
+|         1685 |        0.19 |        93.4 |
+|         1873 |       0.227 |       107.8 |
+|         1880 |       0.252 |         120 |
+|         1896 |       0.265 |       128.9 |
+*** Υπό φορτίο
+| \en{If} | \en{Vt} | \en{Il} | \en{rpm} | \en{Uep} | \en{It} | \en{T} |
+|---------+---------+---------+----------+----------+---------+--------|
+|    0.16 |    79.6 |    3.15 |     1290 |     52.0 |    3.32 |   12.2 |
+|    0.16 |    79.3 |    2.92 |     1357 |     53.7 |    3.09 |   11.2 |
+|   0.163 |    78.9 |    3.01 |     1312 |     52.5 |    3.18 |   11.6 |
+|    0.16 |    79.1 |     2.9 |     1330 |     53.6 |    3.07 |   11.3 |
+|    0.16 |    80.4 |    2.59 |     1420 |     57.4 |    2.77 |   10.2 |
+|   0.169 |      82 |   2.071 |     1553 |     63.3 |    2.25 |   8.36 |
+|   0.171 |    83.2 |    1.69 |     1640 |     67.7 |    1.87 |   7.04 |
+#+tblfm: $6 = ($3 + ($2/$Rf)) ;n3
+#+tblfm: $5 = ($2 - ($6*$Rt)) ;n3
+#+tblfm: $7 = (($5*$6*9.55)/((2*$pi*$4)/60)) ;n3
+** Κινητήρας ξένης διέγερσης και γεννήτρια παράλληλης διέγερσης
+*** Εν κενώ
+**** Μεταβολή τάσης \en{Vt}
+| \en{If} | \en{Vt} | \en{n} |
+|---------+---------+--------|
+|    0.33 |    18.8 |    223 |
+|    0.33 |    31.6 |    413 |
+|    0.33 |    43.8 |    597 |
+|    0.33 |    58.6 |    820 |
+|    0.33 |    72.7 |   1033 |
+|    0.33 |    85.4 |   1222 |
+|    0.33 |    97.2 |   1374 |
+|    0.33 |   109.2 |   1511 |
+|    0.33 |   121.5 |   1652 |
+|    0.33 |   130.2 |   1750 |
+**** Μεταβολή ρεύματος \en{If}
+| \en{Vt} | \en{If} | \en{n} |
+|---------+---------+--------|
+|      70 |    .323 |   1000 |
+|      70 |    .286 |   1080 |
+|      70 |    .248 |   1183 |
+|      70 |    .211 |   1295 |
+|      70 |     .17 |   1394 |
+|      70 |     .14 |   1440 |
+|      70 |     .11 |   1333 |
+|      70 |    .097 |   1200 |
+
+
+** Κινητήρας διέγερσης σε σειρά και γεννήτρια παράλληλης διέγερσης
+*** Υπό φορτίο
+* Ερωτήσεις αναφοράς
